@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      overflow: hidden;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 500px;
+      padding: 30px;
+      z-index: 2;
+    }
+
+    .container h1 {
+      color: #333;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #6a11cb;
+      box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+    }
+
+    button {
+      background-color: #6a11cb;
+      border: none;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #2575fc;
+      transform: translateY(-2px);
+    }
+
+    .rocket, .spaceship {
+      position: absolute;
+      z-index: 1;
+      animation: float 10s infinite linear;
+    }
+
+    .rocket {
+      bottom: -10%;
+      left: 10%;
+      width: 120px;
+      animation: rocket-move 8s infinite ease-in-out;
+    }
+
+    .spaceship {
+      top: -10%;
+      right: 10%;
+      width: 150px;
+      animation: spaceship-move 12s infinite ease-in-out;
+    }
+
+    @keyframes rocket-move {
+      0% {
+        transform: translateY(0) rotate(10deg);
+      }
+      50% {
+        transform: translateY(-200px) rotate(15deg);
+      }
+      100% {
+        transform: translateY(0) rotate(10deg);
+      }
+    }
+
+    @keyframes spaceship-move {
+      0% {
+        transform: translateY(0) rotate(-10deg);
+      }
+      50% {
+        transform: translateY(200px) rotate(-15deg);
+      }
+      100% {
+        transform: translateY(0) rotate(-10deg);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Elements -->
+  
+  <img src="https://cdn-icons-png.flaticon.com/512/4836/4836334.png" class="rocket" alt="Rocket" />
+  <img src="https://cdn-icons-png.flaticon.com/512/252/252035.png" class="spaceship" alt="Spaceship" />
+
+  <!-- Certificate Generator -->
+  <div class="container">
+    <h1>Certificate Generator</h1>
+    <form id="certificateForm" action="/generate" method="POST" target="_blank">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Enter Your Name" required />
+      </div>
+      <button type="submit">Generate Certificate</button>
+    </form>
+  </div>
+</body>
+</html>
